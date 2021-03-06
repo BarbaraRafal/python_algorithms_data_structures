@@ -21,6 +21,6 @@ def factorial_2(n: int) -> int:
 
 # factorial_2(3) = 6
 # 3* factorial_2(2) | 3*2*1
-# 2 * fsctorial2(1) =1 | 2*1
+# 2 * factorial2(1) =1 | 2*1
 if __name__ == "__main__":
     print(factorial_2(3))
