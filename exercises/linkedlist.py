@@ -31,19 +31,23 @@ class LinkedList:
         self._current = self._head
         return self
 
+
     def __next__(self) -> "ListNode":
         if self._current is None:
             raise StopIteration
         node = self._current
         self._current = self._current.next_node
         return node
+    # yield self._current
+    # self._current = self._current.next_node
 
     @property
     def head(self):
         return self._head
 
     def prepend(self, key: int) -> None:
-        self._head = ListNode(key=key, next_node=self._head)
+        new_node = ListNode(key= key, )
+        # self._head = ListNode(key=key, next_node=self._head)
 
     def append(self, key: int) -> None:
         if self.head is None:
@@ -95,5 +99,22 @@ def test_find_non_existing_key():
 
 
 if __name__ == "__main__":
-    test_find_existing_key()
-    test_find_non_existing_key()
+    # test_find_existing_key()
+    # test_find_non_existing_key()
+    linked_list = LinkedList()
+    # linked_list.append(5)
+    # linked_list.append(4)
+    # linked_list.append(3)
+    # linked_list.append(2)
+    # linked_list.append(1)
+    # linked_list.append(0)
+    linked_list.prepend(5)
+    linked_list.prepend(4)
+    linked_list.prepend(3)
+    linked_list.prepend(2)
+    linked_list.prepend(1)
+    linked_list.prepend(0)
+    print(linked_list.get_nodes())
+    linked_list.remove(2)
+    print(linked_list.get_nodes())
+    print(linked_list.find(6))
