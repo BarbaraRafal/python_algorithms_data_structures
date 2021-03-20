@@ -27,6 +27,15 @@ def my_pow(x: float, n: int) -> float:
     return result
 
 
+# Tomka rozwiązanie
+# def power(x: int, n: int) -> int:
+#     total = 1
+#     if n == 0:
+#         return 1
+#     for _ in range(0, n):
+#         total *= x
+#     return total
+
 if __name__ == "__main__":
     print(my_pow(5, -2))
     print(my_pow(5.5, -2))

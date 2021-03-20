@@ -27,16 +27,17 @@ from math import log
 
 
 def is_power_of_two(n: int) -> bool:
+    if n in [1, 2]:
+        return True
+    if n == 0:
+        return False
     x = log(n) / log(2)
     if x % 2 == 0:
         return True
-    else:
-        return False
-
 
 
 if __name__ == "__main__":
-    print(is_power_of_two(1))
+    print(is_power_of_two(0))
     print(is_power_of_two(16))
     print(is_power_of_two(3))
     print(is_power_of_two(4))

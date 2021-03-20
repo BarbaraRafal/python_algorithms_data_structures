@@ -31,13 +31,13 @@ class LinkedList:
         self._current = self._head
         return self
 
-
     def __next__(self) -> "ListNode":
         if self._current is None:
             raise StopIteration
         node = self._current
         self._current = self._current.next_node
         return node
+
     # yield self._current
     # self._current = self._current.next_node
 
@@ -46,7 +46,7 @@ class LinkedList:
         return self._head
 
     def prepend(self, key: int) -> None:
-        new_node = ListNode(key= key, )
+        new_node = ListNode(key=key, )
         # self._head = ListNode(key=key, next_node=self._head)
 
     def append(self, key: int) -> None:
@@ -84,6 +84,19 @@ class LinkedList:
             current = current.next_node
         return nodes
 
+    #  (1)->(2)->(3)->(4)
+    #   p    c    n bedziemy sie krecic w petli poki current nie wyjdzie poza liste
+    #  (1)<-(2)<-(3)<-(4)
+    def reverse_list(self):
+        current = self._head
+        prev_node = None
+        while current:
+            next_node = current.next_node  # wartosc nastepneg node'a
+            current.next_node = prev_node  #
+            prev_node = current
+            current = next_node
+        self.head = prev_node  # po skonczeniu petli prev bedzie wskazywal na ostatni element ktory po odwroceniu bedzie headem
+
 
 def test_find_existing_key():
     linked_list = LinkedList()
@@ -96,6 +109,18 @@ def test_find_non_existing_key():
     linked_list = LinkedList()
 
     assert linked_list.find(42) is None
+
+
+def test_reverse_list():
+    linked_list = LinkedList()
+    data = [5, 4, 3, 2, 1]
+
+    for i in range(5):
+        linked_list.append(i)
+
+    linked_list.reverse_list()
+    expected = [i for i in range(5)]
+    assert expected == []
 
 
 if __name__ == "__main__":
